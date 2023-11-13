@@ -13,7 +13,7 @@ public class PrimeFactors {
   }
 
   private static void primeFactors(int n) {
-    for (int dsr = 2; dsr <= n; dsr++) {
+    for (int dsr = 2; dsr * dsr <= n; dsr++) {
       while (n % dsr == 0) {
         n = n / dsr;
         System.out.print(dsr + " ");

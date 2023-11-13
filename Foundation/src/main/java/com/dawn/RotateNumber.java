@@ -17,7 +17,7 @@ public class RotateNumber {
   private static int rotate(int n, int k) {
     int digCount = countDigits(n);
 
-    k = k % 10;
+    k = k % digCount;
     if (k < 0) {
       k = k + digCount;
     }

@@ -3,7 +3,7 @@ package com.dawn;
 import java.util.Arrays;
 import java.util.Stack;
 
-public class GreatestElementToRight {
+public class GreatestElementToRightApproach1 {
 
   public static void main(String[] args) {
     int[] elements = {2, 5, 9, 3, 1, 12, 6, 8, 7};

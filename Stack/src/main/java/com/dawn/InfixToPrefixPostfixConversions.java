@@ -26,51 +26,38 @@ public class InfixToPrefixPostfixConversions {
         postfix.push(ch + "");
       } else if (ch == ')') {
         while (operators.peek() != '(') {
-          char op = operators.pop();
-          String prev2 = prefix.pop();
-          String prev1 = prefix.pop();
-          String preval = op + prev1 + prev2;
-          prefix.push(preval);
-
-          String postv2 = postfix.pop();
-          String postv1 = postfix.pop();
-          String postval = postv1 + postv2 + op;
-          postfix.push(postval);
+          process(operators, prefix, postfix);
         }
         operators.pop();
       } else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
         while (!operators.isEmpty() &&
             operators.peek() != '(' &&
             precedence(ch) <= precedence(operators.peek())) {
-          char op = operators.pop();
-          String prev2 = prefix.pop();
-          String prev1 = prefix.pop();
-          String preval = op + prev1 + prev2;
-          prefix.push(preval);
-
-          String postv2 = postfix.pop();
-          String postv1 = postfix.pop();
-          String postval = postv1 + postv2 + op;
-          postfix.push(postval);
+          process(operators, prefix, postfix);
         }
         operators.push(ch);
       }
     }
 
     while (!operators.isEmpty()) {
-      char op = operators.pop();
-      String prev2 = prefix.pop();
-      String prev1 = prefix.pop();
-      String preval = op + prev1 + prev2;
-      prefix.push(preval);
-
-      String postv2 = postfix.pop();
-      String postv1 = postfix.pop();
-      String postval = postv1 + postv2 + op;
-      postfix.push(postval);
+      process(operators, prefix, postfix);
     }
     System.out.println("Prefix conversion would be: " + prefix.peek());
     System.out.println("Postfix conversion would be: " + postfix.peek());
+  }
+
+  private static void process(Stack<Character> operators, Stack<String> prefix,
+      Stack<String> postfix) {
+    char op = operators.pop();
+    String prev2 = prefix.pop();
+    String prev1 = prefix.pop();
+    String preval = op + prev1 + prev2;
+    prefix.push(preval);
+
+    String postv2 = postfix.pop();
+    String postv1 = postfix.pop();
+    String postval = postv1 + postv2 + op;
+    postfix.push(postval);
   }
 
   private static int precedence(char op) {

@@ -17,10 +17,25 @@ public class Pattern15 {
       }
 
       for (int col = 0; col < (2 * row) + 1; col++) {
-        System.out.print("- ");
+        System.out.print("  ");
       }
 
       for (int col = 0; col < N - row; col++) {
+        System.out.print("* ");
+      }
+      System.out.println();
+    }
+
+    for (int row = 0; row < N; row++) {
+      for (int col = 0; col < row + 1; col++) {
+        System.out.print("* ");
+      }
+
+      for (int col = 0; col < 2 * N - 2 * row - 1; col++) {
+        System.out.print("  ");
+      }
+
+      for (int col = 0; col < row + 1; col++) {
         System.out.print("* ");
       }
       System.out.println();

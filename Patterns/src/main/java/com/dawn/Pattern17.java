@@ -9,10 +9,16 @@ public class Pattern17 {
     Scanner scn = new Scanner(System.in);
     System.out.println("Input an integer: ");
     int N = scn.nextInt();
+
+    char ch = '0';
     for (int row = 0; row < N; row++) {
       for (int col = 0; col < row; col++) {
-        char ch = (char) (col + 1 + 'A' - 1);
+        ch = (char) (col + 1 + 'A' - 1);
         System.out.print(ch);
+      }
+      for (char alphabet = ch; alphabet > 'A'; ) {
+        alphabet = (char) (alphabet - 1);
+        System.out.print(alphabet);
       }
       System.out.println();
     }

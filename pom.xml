@@ -10,8 +10,9 @@
     <packaging>pom</packaging>
     <modules>
         <module>Foundation</module>
-      <module>Stack</module>
-      <module>Patterns</module>
+        <module>Stack</module>
+        <module>Patterns</module>
+        <module>BitManipulation</module>
     </modules>
 
     <properties>

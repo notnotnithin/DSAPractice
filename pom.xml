@@ -13,6 +13,7 @@
         <module>Stack</module>
         <module>Patterns</module>
         <module>BitManipulation</module>
+        <module>Searching</module>
     </modules>
 
     <properties>

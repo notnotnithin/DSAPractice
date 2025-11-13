@@ -3,7 +3,7 @@ package com.dawn.binarysearch;
 public class PeakArrayElement {
 
     static void main() {
-        int[] a = {10,20,50,40,30};
+        int[] a = {10,20,30,90,70,60,50,40,30};
         int peakElement = PeakArrayElement.searchPeakElement(a);
         IO.println("Peak element in the array is at index: " + peakElement);
     }

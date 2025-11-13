@@ -1,11 +1,11 @@
-package com.dawn;
+package com.dawn.binarysearch;
 
 public class Binary {
 
     static void main() {
-        int[] arr = { 10, 20, 30, 30, 30, 30, 40, 50, 60, 70, 70, 80, 90, 100 };
+        /*int[] arr = { 10, 20, 30, 30, 30, 30, 40, 50, 60, 70, 70, 80, 90, 100 };
         int target = Integer.parseInt(IO.readln("Enter an integer: "));
-        /*int index = search(arr, target);
+        int index = search(arr, target);
         if (index == -1) {
             IO.println("Could not find the element!");
         } else {
@@ -25,11 +25,13 @@ public class Binary {
             IO.println("Could not find the element!");
         } else {
             IO.println("Element found at index " + lastOccurrenceIndex);
-        }*/
+        }
 
         int count = searchTotalOccurrence(arr, target);
-        IO.println("Element found " + count + " times!");
+        IO.println("Element found " + count + " times!");*/
 
+        int [] a = {1,2,3,4,6,7,8,9};
+        IO.println("Missing number is: " +searchMissingNumber(a));
     }
 
     private static int search(int[] arr, int target) {
@@ -99,5 +101,34 @@ public class Binary {
         int lastOccurrence = searchLastOccurrenceWithDuplicates(arr, target);
 
         return (lastOccurrence == -1 && firstOccurrence == -1) ? 0 : (lastOccurrence - firstOccurrence + 1);
+    }
+
+    private static int searchMissingNumber(int[] arr) {
+        int start = 0;
+        int end = arr.length - 1;
+
+        int mid;
+        int diff;
+        int answer = -1;
+
+        while (start <= end) {
+            mid = start + (end - start) / 2;
+            diff = arr[mid] - mid;
+
+            if (diff == 1) {
+                // go to the right
+                start = mid + 1;
+            } else {
+                // store answer (index) as the pattern is broken
+                // answer = mid;
+                // go to the left
+                end = mid - 1;
+            }
+        }
+        /*if ((answer + 1) == 0)
+            return arr.length + 1;*/
+
+        // return index + 1;
+        return start + 1;
     }
 }
